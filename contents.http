@@ -1,0 +1,38 @@
+###
+GET http://localhost:8080/api/content
+
+###
+POST http://localhost:8080/api/content
+Content-Type: application/json
+
+{
+    "contentType": "ARTICLE",
+    "dateCreated": "2024-12-29T13:43:41.946924",
+    "dateUpdated": null,
+    "desc": "Content added by Content-http file",
+    "id": 2,
+    "status": "IDEA",
+    "title": "content 1",
+    "url": ""
+}
+
+###
+PUT http://localhost:8080/api/content/1
+Content-Type: application/json
+
+{
+"contentType": "ARTICLE",
+"dateCreated": "2024-12-29T13:43:41.946924",
+"dateUpdated":  "2024-12-29T13:43:41.946924",
+"desc": "Content added by Content-http file , updated",
+"id": 1,
+"status": "IDEA",
+"title": "content 1",
+"url": ""
+}
+
+###
+GET http://localhost:8080/api/content/{{id}}
+
+###
+DELETE http://localhost:8080/api/content/1
