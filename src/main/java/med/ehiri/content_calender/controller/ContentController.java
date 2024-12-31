@@ -1,5 +1,6 @@
 package med.ehiri.content_calender.controller;
 
+import jakarta.validation.Valid;
 import med.ehiri.content_calender.model.Content;
 import med.ehiri.content_calender.repository.ContentCollectionRepository;
 import org.springframework.http.HttpStatus;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/content")
+@CrossOrigin
 public class ContentController {
 
     private final ContentCollectionRepository contentRepo;
@@ -39,7 +41,7 @@ public class ContentController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    public void update(@RequestBody Content content, @PathVariable Integer id) {
+    public void update(@Valid @RequestBody Content content, @PathVariable Integer id) {
         if (!contentRepo.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Content not found");
         }
